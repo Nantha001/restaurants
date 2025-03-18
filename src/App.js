@@ -137,7 +137,7 @@ class App extends Component {
         <ul className="menu-container">
           {activeFoodData[0].categoryDishes.map(each => (
             <li className="menu-list" key={each.dishId}>
-              <div>
+              <div className="dish-container">
                 <h1 className="dish-name">{each.dishName}</h1>
                 <p className="list-value">{`${each.dishCurrency} ${each.dishPrice}`}</p>
                 <p className="description">{each.dishDescription}</p>
@@ -149,7 +149,7 @@ class App extends Component {
                     >
                       -
                     </button>
-                    <p>{each.qunatity}</p>
+                    <p style={{color: 'darkred'}}>{each.qunatity}</p>
                     <button
                       onClick={() => this.onClickIncrease(each.dishId)}
                       type="button"
@@ -159,15 +159,13 @@ class App extends Component {
                   </div>
                 )}
                 {each.addonCat && each.addonCat.length > 0 && (
-                  <p className="customization-message">
-                    Customizations available
-                  </p>
+                  <p className="customization-msg">Customizations available</p>
                 )}
                 {!each.dishAvailability && (
                   <p className="not-available">Not available</p>
                 )}
               </div>
-              <div>
+              <div className="calories-container">
                 <p className="calories-title">{`${each.dishCalories} calories`}</p>
                 <img
                   className="dish-img"

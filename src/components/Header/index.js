@@ -12,7 +12,7 @@ const Header = props => {
             <h1>{restaurantName}</h1>
           </li>
           <li className="list-item">
-            <p>My Orders</p>
+            <p className="order">My Orders</p>
             <div>
               <button type="submit">
                 <IoIosCart className="cart-icon" />
