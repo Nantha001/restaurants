@@ -9,6 +9,12 @@ const apiStatusOption = {
   apiStatus: 'failure',
 }
 
+const loadingView = () => (
+  <div className="loading-container">
+    <Loader type="TailSpin" height={50} width={50} color="darkred" />
+  </div>
+)
+
 class App extends Component {
   state = {
     activeId: '',
@@ -102,16 +108,6 @@ class App extends Component {
     }
   }
 
-  // loading
-
-  loadingView = () => (
-    <div className="loading-container">
-      <Loader type="TailSpin" height={50} width={50} color="darkred" />
-    </div>
-  )
-
-  // success
-
   successView = () => {
     const {activeId, cartCount, foodListData, restaurantName} = this.state
     const activeFoodData = foodListData.filter(
@@ -187,11 +183,11 @@ class App extends Component {
   }
 
   render() {
-    const {activeId, apiStatus, cartCount, foodListData} = this.state
+    const {apiStatus} = this.state
     return (
       <>
         <div className="bg-container">
-          {apiStatus === apiStatusOption.loading && this.loadingView()}
+          {apiStatus === apiStatusOption.loading && loadingView()}
           {apiStatus === apiStatusOption.success && this.successView()}
         </div>
       </>
