@@ -1,0 +1,53 @@
+.nav-container {
+  width: 100%;
+  background-color: #f6f6f6;
+  box-shadow: inset 0px 0px 15px 2px #ddd;
+}
+
+@media screen and (max-width: 768px) {
+  .list-container p {
+    display: none;
+  }
+}
+
+.list-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  width: 100%;
+  height: 70px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.list-container p {
+  font-size: 16px;
+  font-weight: 500;
+}
+.cart-icon {
+  font-size: 35px;
+  color: blue;
+  position: relative;
+  left: 13px;
+}
+.list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+}
+.count-item {
+  background-color: orange;
+  color: rgb(195, 43, 43);
+  font-weight: bold;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  font-size: 16px;
+  padding: 5px;
+}
+.list-item button {
+  background-color: transparent;
+  border: none;
+}
