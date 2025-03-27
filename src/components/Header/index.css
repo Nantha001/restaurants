@@ -2,6 +2,9 @@
   width: 100%;
   background-color: #f6f6f6;
   box-shadow: inset 0px 0px 15px 2px #ddd;
+  position: sticky;
+  top: 0;
+ 
 }
 
 @media screen and (max-width: 768px) {
