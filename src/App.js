@@ -35,17 +35,22 @@ class App extends Component {
   }
 
   onClickDecrese = id => {
-    this.setState(pre => ({
-      foodListData: pre.foodListData.map(each => ({
-        ...each,
-        categoryDishes: each.categoryDishes.map(dish =>
-          dish.dishId === id && dish.qunatity > 0
-            ? {...dish, qunatity: dish.qunatity - 1}
-            : dish,
-        ),
-      })),
-      cartCount: pre.cartCount > 0 ? pre.cartCount - 1 : 0,
-    }))
+    this.setState(pre => {
+      let update = pre.cartCount
+      return {
+        foodListData: pre.foodListData.map(each => ({
+          ...each,
+          categoryDishes: each.categoryDishes.map(dish => {
+            if (dish.dishId === id && dish.quantity > 0) {
+              update -= 1
+              return {...dish, quantity: dish.quantity - 1}
+            }
+            return dish
+          }),
+        })),
+        cartCount: pre.cartCount > 0 ? update : pre.cartCount,
+      }
+    })
   }
 
   onClickIncrease = id => {
@@ -56,7 +61,7 @@ class App extends Component {
           each.dishId === id
             ? {
                 ...each,
-                qunatity: each.qunatity + 1,
+                quantity: each.quantity + 1,
               }
             : each,
         ),
@@ -90,7 +95,7 @@ class App extends Component {
           dishName: item.dish_name,
           dishPrice: item.dish_price,
           nexturl: item.nexturl,
-          qunatity: 0,
+          quantity: 0,
         })),
         menuCategory: each.menu_category,
         menuCategoryId: each.menu_category_id,
@@ -149,7 +154,7 @@ class App extends Component {
                     >
                       -
                     </button>
-                    <p style={{color: 'darkred'}}>{each.qunatity}</p>
+                    <p style={{color: 'darkred'}}>{each.quantity}</p>
                     <button
                       onClick={() => this.onClickIncrease(each.dishId)}
                       type="button"

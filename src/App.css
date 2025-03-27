@@ -150,13 +150,13 @@ body {
     font-size: 16px;
     font-family: 300;
   }
-  .description{
+  .description {
     max-width: 180px;
   }
-  .menu-list{
+  .menu-list {
     padding: 30px;
   }
- 
+
   .dish-img {
     height: 100px;
     width: 100px;
@@ -167,10 +167,10 @@ body {
   .calories-container {
     max-width: 250px;
   }
-  .cart-btn-container{
+  .cart-btn-container {
     max-width: 130px;
   }
-  .customization-msg{
+  .customization-msg {
     max-width: 120px;
   }
 }
